@@ -9,7 +9,7 @@ class CalendarHeader extends Component {
 				left: 0,
 				right: 0,
 				bottom: 0,
-				height: '62px',
+				height: '90px',
 				background: '#222',
 				textAlign: 'center'
 			},
@@ -22,7 +22,7 @@ class CalendarHeader extends Component {
 			},
 			headerH1Style = {
 				position: 'relative',
-				margin: 0,
+				margin: '20px 0 0 65px',
 				display: 'inline-block',
 				fontSize: '27px',
 				color: '#00d8ff'
@@ -35,6 +35,7 @@ class CalendarHeader extends Component {
 				fontSize: '37px'
 			},
 			textButtonStyle = {
+				width: '65px',
 				border: 0,
 				background: 0,
 				cursor: 'pointer',

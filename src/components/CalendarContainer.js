@@ -5,10 +5,10 @@ class CalendarContainer extends Component {
 	render() {
 		let containerStyle = {
 				position: 'absolute',
-				top: '62px',
+				top: '90px',
 				left: 0,
 				right: 0,
-				bottom: '40px'
+				bottom: 0
 			},
 			weekStyle = {
 				color: '#888',

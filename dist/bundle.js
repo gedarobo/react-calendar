@@ -20296,7 +20296,7 @@
 					left: 0,
 					right: 0,
 					bottom: 0,
-					height: '62px',
+					height: '90px',
 					background: '#222',
 					textAlign: 'center'
 				},
@@ -20309,7 +20309,7 @@
 				},
 				    headerH1Style = {
 					position: 'relative',
-					margin: 0,
+					margin: '20px 0 0 65px',
 					display: 'inline-block',
 					fontSize: '27px',
 					color: '#00d8ff'
@@ -20322,6 +20322,7 @@
 					fontSize: '37px'
 				},
 				    textButtonStyle = {
+					width: '65px',
 					border: 0,
 					background: 0,
 					cursor: 'pointer',
@@ -20411,10 +20412,10 @@
 			value: function render() {
 				var containerStyle = {
 					position: 'absolute',
-					top: '62px',
+					top: '90px',
 					left: 0,
 					right: 0,
-					bottom: '40px'
+					bottom: 0
 				},
 				    weekStyle = {
 					color: '#888',
@@ -34439,6 +34440,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -34458,7 +34461,25 @@
 			key: 'render',
 			value: function render() {
 				var rowStyle = {
+					position: 'relative',
+					width: '100%',
 					height: this.props.rowHeight + '%'
+				},
+				    gridStyle = {
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					width: '100%',
+					height: '100%',
+					tableLayout: 'fixed',
+					borderCollapse: 'collapse',
+					margin: 0,
+					padding: 0
+				},
+				    cellStyle = {
+					// borderRight: '1px solid #222',
+					borderBottom: '1px solid #ddd',
+					verticalAlign: 'top'
 				},
 				    scheduleListStyle = {
 					position: 'relative',
@@ -34469,6 +34490,25 @@
 				return _react2.default.createElement(
 					'div',
 					{ style: rowStyle },
+					_react2.default.createElement(
+						'table',
+						{ cellpadding: '0', cellspacing: '0', style: gridStyle },
+						_react2.default.createElement(
+							'tbody',
+							null,
+							_react2.default.createElement(
+								'tr',
+								null,
+								[].concat(_toConsumableArray(Array(7))).map(function (value, index) {
+									return _react2.default.createElement(
+										'td',
+										{ key: index, dayindex: index, style: cellStyle },
+										' '
+									);
+								})
+							)
+						)
+					),
 					_react2.default.createElement(
 						'table',
 						{ cellpadding: '0', cellspacing: '0', style: scheduleListStyle },
@@ -34485,6 +34525,31 @@
 										value.date
 									);
 								})
+							),
+							_react2.default.createElement(
+								'tr',
+								null,
+								_react2.default.createElement('td', null),
+								_react2.default.createElement('td', null),
+								_react2.default.createElement(
+									'td',
+									{ dayindex: '8', colSpan: '3' },
+									_react2.default.createElement(
+										'div',
+										{ style: { background: '#00d8ff' } },
+										_react2.default.createElement(
+											'div',
+											{ 'class': 'info' },
+											_react2.default.createElement(
+												'a',
+												{ href: '#', style: { textDecoration: 'initial', color: '#222', padding: '5px 1px 1px 5px' } },
+												'내용 없음'
+											)
+										)
+									)
+								),
+								_react2.default.createElement('td', null),
+								_react2.default.createElement('td', null)
 							)
 						)
 					)
