@@ -1,4 +1,5 @@
 import React, {PropType, Component} from 'react';
+import moment from 'moment';
 
 class CalendarHeader extends Component {
 	goToday() {
@@ -13,7 +14,7 @@ class CalendarHeader extends Component {
 				right: 0,
 				bottom: 0,
 				height: '62px',
-				backgroundColor: '#222',
+				background: '#222',
 				textAlign: 'center'
 			},
 			headerTitleStyle = {
@@ -50,10 +51,10 @@ class CalendarHeader extends Component {
 				<div style={headerTitleStyle}>
 					<h1 style={headerH1Style}>
 						<button style={buttonStyle}>&lt;</button>
-						<span>{this.props.todayDate.getFullYear()}.{('0' + this.props.todayDate.getMonth()).slice(-2)}</span>
+						<span>{moment(this.props.todayDate).format('YYYY.MM')}</span>
 						<button style={buttonStyle}>&gt;</button>
 					</h1>
-					<button style={textButtonStyle} onClick={this.goToday.bind(this)}>오늘</button>
+					<button style={textButtonStyle} onClick={this.goToday.bind(this)}>TODAY</button>
 				</div>
 			</div>
 		);
