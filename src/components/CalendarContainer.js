@@ -25,13 +25,13 @@ class CalendarContainer extends Component {
 				<table cellpadding="0" cellspacing="0" style={weekStyle}>
 					<tbody>
 						<tr>
-							<th class="sun">SUN</th>
+							<th style={{color: '#c05b4d'}}>SUN</th>
 							<th>MON</th>
 							<th>TUE</th>
 							<th>WED</th>
 							<th>THU</th>
 							<th>FRI</th>
-							<th>SAT</th>
+							<th style={{color: '#61dafb'}}>SAT</th>
 						</tr>
 					</tbody>
 				</table>

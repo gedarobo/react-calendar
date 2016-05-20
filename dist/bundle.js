@@ -20441,7 +20441,7 @@
 								null,
 								_react2.default.createElement(
 									'th',
-									{ 'class': 'sun' },
+									{ style: { color: '#c05b4d' } },
 									'SUN'
 								),
 								_react2.default.createElement(
@@ -20471,7 +20471,7 @@
 								),
 								_react2.default.createElement(
 									'th',
-									null,
+									{ style: { color: '#61dafb' } },
 									'SAT'
 								)
 							)
@@ -34521,7 +34521,7 @@
 								this.props.dateList.map(function (value, index) {
 									return _react2.default.createElement(
 										'td',
-										{ key: index },
+										{ key: index, style: { color: index === 0 ? '#c05b4d' : index === 6 ? '#61dafb' : '' } },
 										value.date
 									);
 								})
@@ -34530,19 +34530,35 @@
 								'tr',
 								null,
 								_react2.default.createElement('td', null),
-								_react2.default.createElement('td', null),
 								_react2.default.createElement(
 									'td',
-									{ dayindex: '8', colSpan: '3' },
+									null,
 									_react2.default.createElement(
 										'div',
-										{ style: { background: '#00d8ff' } },
+										null,
 										_react2.default.createElement(
 											'div',
 											{ 'class': 'info' },
 											_react2.default.createElement(
 												'a',
-												{ href: '#', style: { textDecoration: 'initial', color: '#222', padding: '5px 1px 1px 5px' } },
+												{ href: '#', style: { fontSize: '13px', textDecoration: 'initial', color: '#00d8ff', padding: '5px 1px 1px 5px' } },
+												'14:00 내용 없음'
+											)
+										)
+									)
+								),
+								_react2.default.createElement(
+									'td',
+									{ dayindex: '8', colSpan: '3' },
+									_react2.default.createElement(
+										'div',
+										{ style: { background: '#00d8ff', borderRadius: '20px' } },
+										_react2.default.createElement(
+											'div',
+											{ 'class': 'info' },
+											_react2.default.createElement(
+												'a',
+												{ href: '#', style: { fontSize: '13px', textDecoration: 'initial', color: '#222', padding: '5px 1px 1px 5px' } },
 												'내용 없음'
 											)
 										)
