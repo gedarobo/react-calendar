@@ -3739,24 +3739,50 @@
 	var Calendar = function (_Component) {
 		_inherits(Calendar, _Component);
 
-		function Calendar() {
+		function Calendar(props) {
 			_classCallCheck(this, Calendar);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Calendar).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Calendar).call(this, props));
+
+			_this.state = {
+				todayDate: (0, _moment2.default)().format('YYYY-MM-DD')
+			};
+			return _this;
 		}
 
 		_createClass(Calendar, [{
+			key: 'changeDate',
+			value: function changeDate(action) {
+				var todayDateTime = (0, _moment2.default)(this.state.todayDate);
+
+				switch (action) {
+					case 'prev':
+						this.setState({
+							todayDate: todayDateTime.subtract(1, 'month').format('YYYY-MM-DD')
+						});
+						break;
+
+					case 'next':
+						this.setState({
+							todayDate: todayDateTime.add(1, 'month').format('YYYY-MM-DD')
+						});
+						break;
+
+					case 'today':
+						this.setState({
+							todayDate: (0, _moment2.default)().format('YYYY-MM-DD')
+						});
+						break;
+				}
+			}
+		}, {
 			key: 'render',
 			value: function render() {
-				this.todayDate = (0, _moment2.default)().format('YYYY-MM-DD');
-				this.todayDate = '2016-03-10';
-				console.log(this.todayDate);
-
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(_CalendarHeader2.default, { todayDate: this.todayDate }),
-					_react2.default.createElement(_CalendarContainer2.default, { todayDate: this.todayDate })
+					_react2.default.createElement(_CalendarHeader2.default, { todayDate: this.state.todayDate, onChangeDate: this.changeDate.bind(this) }),
+					_react2.default.createElement(_CalendarContainer2.default, { todayDate: this.state.todayDate })
 				);
 			}
 		}]);
@@ -20262,11 +20288,6 @@
 		}
 
 		_createClass(CalendarHeader, [{
-			key: 'goToday',
-			value: function goToday() {
-				console.log('today');
-			}
-		}, {
 			key: 'render',
 			value: function render() {
 				var headerStyle = {
@@ -20319,7 +20340,7 @@
 							{ style: headerH1Style },
 							_react2.default.createElement(
 								'button',
-								{ style: buttonStyle },
+								{ style: buttonStyle, onClick: this.props.onChangeDate.bind(this, 'prev') },
 								'<'
 							),
 							_react2.default.createElement(
@@ -20329,13 +20350,13 @@
 							),
 							_react2.default.createElement(
 								'button',
-								{ style: buttonStyle },
+								{ style: buttonStyle, onClick: this.props.onChangeDate.bind(this, 'next') },
 								'>'
 							)
 						),
 						_react2.default.createElement(
 							'button',
-							{ style: textButtonStyle, onClick: this.goToday.bind(this) },
+							{ style: textButtonStyle, onClick: this.props.onChangeDate.bind(this, 'today') },
 							'TODAY'
 						)
 					)
@@ -34444,8 +34465,6 @@
 					tableLayout: 'fixed',
 					width: '100%'
 				};
-
-				console.log(this.props.dateList);
 
 				return _react2.default.createElement(
 					'div',

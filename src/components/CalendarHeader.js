@@ -2,10 +2,6 @@ import React, {PropType, Component} from 'react';
 import moment from 'moment';
 
 class CalendarHeader extends Component {
-	goToday() {
-		console.log('today')
-	}
-
 	render() {
 		let headerStyle = {
 				position: 'absolute',
@@ -50,11 +46,11 @@ class CalendarHeader extends Component {
 			<div style={headerStyle}>
 				<div style={headerTitleStyle}>
 					<h1 style={headerH1Style}>
-						<button style={buttonStyle}>&lt;</button>
+						<button style={buttonStyle} onClick={this.props.onChangeDate.bind(this, 'prev')}>&lt;</button>
 						<span>{moment(this.props.todayDate).format('YYYY.MM')}</span>
-						<button style={buttonStyle}>&gt;</button>
+						<button style={buttonStyle} onClick={this.props.onChangeDate.bind(this, 'next')}>&gt;</button>
 					</h1>
-					<button style={textButtonStyle} onClick={this.goToday.bind(this)}>TODAY</button>
+					<button style={textButtonStyle} onClick={this.props.onChangeDate.bind(this, 'today')}>TODAY</button>
 				</div>
 			</div>
 		);
